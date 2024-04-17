@@ -36,4 +36,5 @@ Route::get('/logout',                           [LogoutController::class, 'perfo
 Route::controller(HomeController::class)->group(function () {
     
     Route::get('/compras', 'compras');
+    Route::get('/ventas', 'ventas');
 });

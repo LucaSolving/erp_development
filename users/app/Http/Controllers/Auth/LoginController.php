@@ -45,16 +45,15 @@ class LoginController extends Controller
 
 
     public function login(LoginRequest $request) {
-        echo 'ingreso';
         $credentials = $request->getCredentials();
 
-        if(!Auth::validate($credentials)):
-           return redirect()->to('login')->withErrors(trans('auth.failed'));
+        if(!Auth::validate($credentials)):            
+            return 'F';
+           //return redirect()->to('login')->withErrors(trans('auth.failed'));
         endif;
 
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-
         // $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
         return $this->authenticated($request, $user);
@@ -64,7 +63,6 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if (($user->status == 'A')||($user->status == 'I')) {
-            echo 'VALIDAR';
             //return redirect('/dashboard');
             //print_r($request);
             /*echo '<br><br>';
@@ -73,6 +71,7 @@ class LoginController extends Controller
             //return $user;
             return response()->json($user);
         } else {
+            
             $this->logout($request);
         }
         Session::flash('message', 'Disculpe, Usted no tiene acceso al sistema.');

@@ -20,8 +20,12 @@ class LoginController extends Controller
     {
         $result = Http::post('http://localhost:8001/login', $request->all());
 
-        return $result;
-        return view('home.dashboard');
+        if($result=='F'){
+            return redirect('/');
+        }
+        else{
+            return view('home.dashboard');
+        }
     }
 
     

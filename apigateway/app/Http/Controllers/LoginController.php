@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request_return = Http::post('http://localhost:8002/login', $request->all());
-        return response()->json($request_return);
+        return $request_return;
         
     }
 }

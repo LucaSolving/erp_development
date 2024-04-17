@@ -41,5 +41,10 @@ class HomeController extends Controller
     public function compras()
     {
         return 'texto de prueba: compras';
+    } 
+
+    public function ventas()
+    {
+        return 'texto de prueba: ventas';
     }
 }
