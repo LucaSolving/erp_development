@@ -29,11 +29,11 @@ class LoginController extends Controller
             'password' => $request->input('password')
           ]);*/
 
-        $stockproduct_test = Http::post('http://localhost:8001/orders', $request->all());
+        $stockproduct_test = Http::post('http://localhost:8001/demo', $request->all());
         echo 'enviando';
         print_r($request->all());
         //$response = $this->apigatewayService->post('/orders/',$request->all());
-    
+        echo '<br>devolucion';
         return $stockproduct_test;
     }
 }
