@@ -40,11 +40,15 @@ class HomeController extends Controller
 
     public function compras()
     {
-        return 'texto de prueba: compras';
+        $result = Http::get('http://localhost:8003/compras');
+        return $result;
+        //return 'texto de prueba: compras';
     } 
 
     public function ventas()
     {
-        return 'texto de prueba: ventas';
+        $result = Http::get('http://localhost:8004/ventas');
+        return $result;
+        //return 'texto de prueba: ventas';
     }
 }
