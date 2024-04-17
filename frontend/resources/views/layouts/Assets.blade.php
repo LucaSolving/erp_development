@@ -23,12 +23,8 @@
             <div>
                 <div class="d-flex justify-content-around">
                     <div class="user-perfil">
-                        @if(auth()->user()->image == true)
-                            <img src="{{ ('https://mlmw.lucasolving.com/images/perfil/'.auth()->user()->image)}}" width="36" class="img-fluid user-perfil__navbar">
-                        @else
-                            <img src="{{ ('https://mlmw.lucasolving.com/images/icon_user.png')}}" class="img-fluid">
-                        @endif
-                        {{auth()->user()->firts_name;}} {{auth()->user()->last_name}}
+                        <img src="{{ ('https://mlmw.lucasolving.com/images/icon_user.png')}}" class="img-fluid">
+                        Welcome
                     </div>
                     <div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -38,40 +34,23 @@
                                 <div class="offcanvas-header">
                                 <img src="{{ URL ('https://mlmw.lucasolving.com/images/icon_user.png')}}" class="img-fluid">                            
                                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                                        {{auth()->user()->firts_name;}} {{auth()->user()->last_name}}
+                                    Welcome
                                     </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body">
                                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is("/profile/".auth()->user()->id)) ? 'link-active' : '' }}" aria-current="page" href="{{ ('https://mlmw.lucasolving.com/profile/'.auth()->user()->id) }}">Editar Perfil</a>
-	                                    </li>
-	                                    <li><hr></li>                              
-	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('dashboard')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/dashboard">Inicio</a>
+	                                        <a class="nav-link over-link {{ (request()->is('dashboard')) ? 'link-active' : '' }}" href="/dashboard">Dashboard</a>
 	                                    </li>
 	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('register')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/register">Registrar Consultor</a>
+	                                        <a class="nav-link over-link {{ (request()->is('ventas')) ? 'link-active' : '' }}" href="/ventas">Ventas</a>
 	                                    </li>
 	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('shop')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/shop">Ir a la Tienda</a>
-	                                    </li>
-	                                    {{-- <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('register_voucher')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/register_voucher">Registrar Voucher</a>
-	                                    </li> --}}
-	                                    <li><hr></li>
-	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('my_community')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/my_community">Mi Red</a>
+	                                        <a class="nav-link over-link {{ (request()->is('compras')) ? 'link-active' : '' }}" href="/compras">Compras</a>
 	                                    </li>
 	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('my_shopping')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/my_shopping">Mis Compras</a>
-	                                    </li>
-	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('my_commissions')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/my_commissions">Mis Comisiones</a>
-	                                    </li>
-	                                    <li class="nav-item">
-	                                        <a class="nav-link over-link {{ (request()->is('my_pre_registration')) ? 'link-active' : '' }}" href="https://mlmw.lucasolving.com/my_pre_registration">Mis Pre-Registros</a>
+	                                        <a class="nav-link over-link {{ (request()->is('logout')) ? 'link-active' : '' }}" href="/logout">Logout</a>
 	                                    </li>
 	                                    <li class="pt-5">
 	                                        <form action="/logout" method="GET">
@@ -85,8 +64,8 @@
 	                                <ul class="pt-5 text-center">
 	                                    <li class="nav-item" style="list-style: none;">
 	                                        <h6 class="dashboard-title-contact nav-link">¿Dudas o consultas?</h6>
-	                                        <p><b>WhatsApp:</b> 936-666-955</p>
-	                                        <p><b>Correo:</b> soporte@waterlifeperu.com</p>
+	                                        <p><b>WhatsApp:</b> +1 (777) 999-9999</p>
+	                                        <p><b>Correo:</b> soporte@erp.us</p>
 	                                    </li>
 	                                </ul>
                             </div>

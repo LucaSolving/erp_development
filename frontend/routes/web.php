@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\HomeController;
 
+//use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +17,9 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Las rutas libre del middleware
+//Auth::routes();
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -21,4 +28,12 @@ Route::get('/', function () {
 Route::controller(LoginController::class)->group(function () {
     
     Route::post('/login', 'login');
+});
+Route::get('/logout',                           [LogoutController::class, 'perform']);
+
+// routes/web.php
+
+Route::controller(HomeController::class)->group(function () {
+    
+    Route::get('/compras', 'compras');
 });

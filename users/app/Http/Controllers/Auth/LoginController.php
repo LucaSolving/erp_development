@@ -45,6 +45,7 @@ class LoginController extends Controller
 
 
     public function login(LoginRequest $request) {
+        echo 'ingreso';
         $credentials = $request->getCredentials();
 
         if(!Auth::validate($credentials)):
@@ -63,7 +64,14 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if (($user->status == 'A')||($user->status == 'I')) {
-            return redirect('/dashboard');
+            echo 'VALIDAR';
+            //return redirect('/dashboard');
+            //print_r($request);
+            /*echo '<br><br>';
+            print_r($user);
+            echo '<br><br>';*/
+            //return $user;
+            return response()->json($user);
         } else {
             $this->logout($request);
         }
